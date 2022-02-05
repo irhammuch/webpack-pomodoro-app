@@ -6,32 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>Pomodoro</h1>
-    <div>
-      <h2>Session</h2>
-      <div>
-        <button onclick="subSessionVal()">-</button>
-        <span id="sessionVal"></span>
-        <button onclick="addSessionVal()">+</button>
+    <div id="timerSettings">
+      <div class="settings">
+        <h5>Session</h5>
+        <div class="setting">
+          <button onclick="subSessionVal()" class="small">-</button>
+          <span id="sessionVal"></span>
+          <button onclick="addSessionVal()" class="small">+</button>
+        </div>
+      </div>
+      <div class="settings">
+        <h5>Break</h5>
+        <div class="setting">
+          <button onclick="subBreakVal()" class="small">-</button>
+          <span id="breakVal"></span>
+          <button onclick="addBreakVal()" class="small">+</button>
+        </div>
       </div>
     </div>
-    <div>
-      <h2>Break</h2>
-      <div>
-        <button onclick="subBreakVal()">-</button>
-        <span id="breakVal"></span>
-        <button onclick="addBreakVal()">+</button>
-      </div>
-    </div>
-    <div>
+
+    <div id="timerSection">
       <div id="timer"></div>
-      <div id="countdownState">Idle</div>
+      <div id="countdownState"></div>
     </div>
     <div>
-      <button id="playButton" onclick="toggleCountdown()"></button>
-      <button id="resetButton" onclick="resetCountdown()">Reset</button>
+      <button
+        id="playButton"
+        onclick="toggleCountdown()"
+        class="large icon-pause"
+      ></button>
+      <button
+        id="resetButton"
+        onclick="resetCountdown()"
+        class="large icon-stop"
+      ></button>
     </div>
     <script src="main.js"></script>
   </body>

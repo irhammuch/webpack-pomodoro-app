@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background-color: #272c43;
+  color: #d2d6ef;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; }
+
+h1 {
+  margin: 16px; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400; }
+
+div,
+p {
+  font-size: larger; }
+
+#timerSection {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+#timer {
+  font-size: 3rem; }
+
+#timer,
+#countdownState {
+  text-align: center;
+  text-transform: capitalize; }
+
+#timerSettings {
+  display: flex; }
+
+.settings {
+  margin: 16px 8px; }
+  .settings .setting {
+    display: flex;
+    align-items: center; }
+  .settings span {
+    margin: 16px 8px; }
+  .settings h5 {
+    text-align: center; }
+
+button {
+  background: #272c43;
+  color: #d2d6ef;
+  border: 0;
+  margin: 16px 8px; }
+  button.large {
+    font-size: 1.5rem;
+    margin: 16px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    box-shadow: 6px 6px 13px #1b1f2f, -6px -6px 13px #333957; }
+  button.small {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #272c43;
+    box-shadow: 4px 4px 7px #1b1f2f, -4px -4px 7px #333957; }
+  button:hover {
+    cursor: pointer; }
+    button:hover.large {
+      background: linear-gradient(145deg, #23283c, #2a2f48);
+      box-shadow: 6px 6px 13px #1b1f2f, -6px -6px 13px #333957; }
+    button:hover.small {
+      background: linear-gradient(145deg, #23283c, #2a2f48);
+      box-shadow: 4px 4px 7px #1b1f2f, -4px -4px 7px #333957; }
+  button:active.large {
+    background: #272c43;
+    box-shadow: inset 6px 6px 13px #1b1f2f, inset -6px -6px 13px #333957; }
+  button:active.small {
+    background: #272c43;
+    box-shadow: inset 4px 4px 7px #1b1f2f, inset -4px -4px 7px #333957; }
+
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?pp6s63");
+  src: url("fonts/icomoon.eot?pp6s63#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?pp6s63") format("truetype"), url("fonts/icomoon.woff?pp6s63") format("woff"), url("fonts/icomoon.svg?pp6s63#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; }
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-stop:before {
+  content: "\e901"; }
+
+.icon-play:before {
+  content: "\e903"; }
+
+.icon-pause:before {
+  content: "\e905"; }

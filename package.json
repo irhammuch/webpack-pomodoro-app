@@ -1,0 +1,30 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "Simple pomodoro webapp using js & sass.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-sass": "node-sass scss -o ./",
+    "watch-sass": "node-sass --watch scss -o ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irhammuch/pomodoro.git"
+  },
+  "keywords": [
+    "javascript",
+    "sass",
+    "scss",
+    "pomodoro"
+  ],
+  "author": "Muchamad Irham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irhammuch/pomodoro/issues"
+  },
+  "homepage": "https://github.com/irhammuch/pomodoro#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

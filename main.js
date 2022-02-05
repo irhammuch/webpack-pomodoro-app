@@ -1,5 +1,5 @@
-var sessionLength = 5;
-var breakLength = 25;
+var sessionLength = 25;
+var breakLength = 5;
 var timer, timerType, countdown, countdownState;
 
 document.addEventListener("DOMContentLoaded", () => loadContent());
@@ -8,8 +8,6 @@ const loadContent = () => {
   timerType = "session";
   countdownState = "idle";
   setTimer(timerType);
-
-  countdown = setInterval(setCountDown, 1000);
   setHtmlContent();
 };
 
@@ -22,6 +20,7 @@ const setHtmlContent = () => {
   setSessionHtml();
   setBreakHtml();
   setTimerHtml();
+  setCoundownStateHtml();
   setPlayButtonHtml();
 };
 
@@ -34,8 +33,24 @@ const setBreakHtml = () => {
 };
 
 const setPlayButtonHtml = () => {
-  document.getElementById("playButton").innerHTML =
-    countdownState == "idle" ? "Play" : "Pause";
+  const element = document.getElementById("playButton");
+  if (countdownState == "idle") {
+    element.classList.remove("icon-pause");
+    element.classList.add("icon-play");
+  } else {
+    element.classList.remove("icon-play");
+    element.classList.add("icon-pause");
+  }
+};
+
+const setCoundownStateHtml = () => {
+  const state =
+    countdownState == "idle"
+      ? "idle"
+      : timerType == "break"
+      ? "break"
+      : "start";
+  document.getElementById("countdownState").innerHTML = state;
 };
 
 const setTimerHtml = () => {
@@ -63,33 +78,49 @@ const setCountDown = () => {
 };
 
 const toggleCountdown = () => {
+  if (!countdown) {
+    countdown = setInterval(setCountDown, 1000);
+  }
   countdownState = countdownState == "idle" ? "start" : "idle";
+  setCoundownStateHtml();
   setPlayButtonHtml();
 };
 
 const resetCountdown = () => {
-  clearInterval(countdown);
-  loadContent();
+  if (countdown) {
+    clearInterval(countdown);
+    countdown = !countdown;
+    loadContent();
+  }
+};
+
+const resetTimer = () => {
+  setTimer(timerType);
+  setTimerHtml();
 };
 
 const addSessionVal = () => {
   sessionLength++;
   setSessionHtml();
+  !countdown && resetTimer();
 };
 
 const subSessionVal = () => {
   if (sessionLength < 2) return;
   sessionLength--;
   setSessionHtml();
+  !countdown && resetTimer();
 };
 
 const addBreakVal = () => {
   breakLength++;
   setBreakHtml();
+  !countdown && resetTimer();
 };
 
 const subBreakVal = () => {
   if (breakLength < 2) return;
   breakLength--;
   setBreakHtml();
+  !countdown && resetTimer();
 };
