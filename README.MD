@@ -1,3 +1,3 @@
 # Pomodoro
 
-Simple pomodoro timer app.
+Simple pomodoro timer webapp with vanilla javascript.
