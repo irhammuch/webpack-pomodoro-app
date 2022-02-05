@@ -1,5 +1,5 @@
-var sessionLength = 1;
-var breakLength = 2;
+var sessionLength = 5;
+var breakLength = 25;
 var timer, timerType, countdown, countdownState;
 
 document.addEventListener("DOMContentLoaded", () => loadContent());
