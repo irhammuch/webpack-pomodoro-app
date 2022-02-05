@@ -12,26 +12,26 @@
     <div>
       <h2>Session</h2>
       <div>
-        <button>-</button>
-        <span>25</span>
-        <button>+</button>
+        <button onclick="subSessionVal()">-</button>
+        <span id="sessionVal"></span>
+        <button onclick="addSessionVal()">+</button>
       </div>
     </div>
     <div>
       <h2>Break</h2>
       <div>
-        <button>-</button>
-        <span>5</span>
-        <button>+</button>
+        <button onclick="subBreakVal()">-</button>
+        <span id="breakVal"></span>
+        <button onclick="addBreakVal()">+</button>
       </div>
     </div>
     <div>
-      <div>25:00</div>
-      <div>Idle</div>
+      <div id="timer"></div>
+      <div id="countdownState">Idle</div>
     </div>
     <div>
-      <button>Play</button>
-      <button>Reset</button>
+      <button id="playButton" onclick="toggleCountdown()"></button>
+      <button id="resetButton" onclick="resetCountdown()">Reset</button>
     </div>
     <script src="main.js"></script>
   </body>
