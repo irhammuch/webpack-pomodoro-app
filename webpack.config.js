@@ -1,0 +1,46 @@
+var path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  mode: "production",
+  entry: ["./src/main.js"],
+  devtool: "source-map",
+  resolve: {
+    extensions: ["*", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+      {
+        test: /\.(s(a|c)ss)$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)?(\?[a-z0-9#=&.]+)?$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/fonts/[contenthash][ext]",
+        },
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "assets/css/styles.css",
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+    }),
+  ],
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "assets/js/bundle.min.js",
+    libraryTarget: "window",
+  },
+};

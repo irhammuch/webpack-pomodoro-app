@@ -1,3 +1,5 @@
+import "./styles.scss";
+
 var sessionLength = 25;
 var breakLength = 5;
 var timer, timerType, countdown, countdownState;
@@ -12,7 +14,7 @@ const loadContent = () => {
 };
 
 const setTimer = (type) => {
-  minute = type == "session" ? sessionLength : breakLength;
+  const minute = type == "session" ? sessionLength : breakLength;
   timer = minute * 60;
 };
 
@@ -123,4 +125,13 @@ const subBreakVal = () => {
   breakLength--;
   setBreakHtml();
   !countdown && resetTimer();
+};
+
+export {
+  toggleCountdown,
+  resetCountdown,
+  addSessionVal,
+  subSessionVal,
+  addBreakVal,
+  subBreakVal,
 };
