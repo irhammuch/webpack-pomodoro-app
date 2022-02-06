@@ -1,8 +1,8 @@
 {
   "name": "pomodoro",
   "version": "1.0.0",
-  "description": "Simple pomodoro webapp using js & sass.",
-  "main": "webpack.config.js",
+  "description": "A showcase project to demonstrate a production-ready javascript application from scratch using some of the popular npm packages commonly used by modern frameworks like react/angular/vue.",
+  "private": true,
   "scripts": {
     "build": "webpack"
   },
