@@ -1,9 +1,17 @@
 $background-color: #272c43;
 $background-lighter: #333957;
 $background-darker: #1b1f2f;
+$background-gradient: linear-gradient(145deg, #23283c, #2a2f48);
+
 $text-color: #d2d6ef;
-$primary: #612ff5;
-$primary-variant: #855cff;
+
+$margin: 8px;
+$margin-2: 16px;
+
+$bs-outter-lg: 6px 6px 13px;
+$bs-inner-lg: -6px -6px 13px;
+$bs-outter-sm: 4px 4px 7px;
+$bs-inner-sm: -4px -4px 7px;
 
 * {
   padding: 0;
@@ -20,123 +28,116 @@ body {
   height: 100vh;
 }
 
-h1 {
-  margin: 16px;
+.title {
+  margin: $margin-2;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
+.configs {
+  display: flex;
+
+  &__item {
+    margin: $margin-2 $margin;
+
+    &__label {
+      text-align: center;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+    }
+
+    &__value {
+      margin: $margin-2 $margin;
+    }
+  }
 }
 
-div,
-p {
-  font-size: larger;
-}
-
-#timerSection {
+.timer {
   height: 200px;
   width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
 
-#timer {
-  font-size: 3rem;
-}
-
-#timer,
-#countdownState {
-  text-align: center;
-  text-transform: capitalize;
-}
-
-#timerSettings {
-  display: flex;
-}
-
-.settings {
-  margin: 16px 8px;
-
-  .setting {
-    display: flex;
-    align-items: center;
+  &__value {
+    font-size: 3rem;
   }
 
-  span {
-    margin: 16px 8px;
-  }
-
-  h5 {
+  &__value,
+  &__state {
     text-align: center;
+    text-transform: capitalize;
   }
 }
 
-button {
+button,
+.button {
   background: $background-color;
   color: $text-color;
   border: 0;
-  margin: 16px 8px;
+  margin: $margin-2 $margin;
 
-  &.large {
+  &--large {
     font-size: 1.5rem;
-    margin: 16px;
+    margin: $margin-2;
     width: 64px;
     height: 64px;
-    border-radius: 50px;
-    box-shadow: 6px 6px 13px $background-darker,
-      -6px -6px 13px $background-lighter;
+    box-shadow: $bs-outter-lg $background-darker,
+      $bs-inner-lg $background-lighter;
   }
 
-  &.small {
+  &--small {
     width: 36px;
     height: 36px;
+    box-shadow: $bs-outter-sm $background-darker,
+      $bs-inner-sm $background-lighter;
+  }
+
+  &--rounded {
     border-radius: 8px;
-    background: #272c43;
-    box-shadow: 4px 4px 7px $background-darker,
-      -4px -4px 7px $background-lighter;
+  }
+
+  &--circle {
+    border-radius: 50%;
   }
 
   &:hover {
     cursor: pointer;
 
-    &.large {
-      background: linear-gradient(145deg, #23283c, #2a2f48);
-      box-shadow: 6px 6px 13px $background-darker,
-        -6px -6px 13px $background-lighter;
+    &--large {
+      background: $background-gradient;
+      box-shadow: $bs-outter-lg $background-darker,
+        $bs-inner-lg $background-lighter;
     }
 
-    &.small {
-      background: linear-gradient(145deg, #23283c, #2a2f48);
-      box-shadow: 4px 4px 7px #1b1f2f, -4px -4px 7px #333957;
+    &--small {
+      background: $background-gradient;
+      box-shadow: $bs-outter-sm $background-darker,
+        $bs-inner-sm $background-lighter;
     }
   }
 
   &:active {
-    &.large {
-      background: #272c43;
-      box-shadow: inset 6px 6px 13px #1b1f2f, inset -6px -6px 13px #333957;
+    &--large {
+      box-shadow: inset $bs-outter-lg $background-darker,
+        inset $bs-inner-lg $background-lighter;
     }
 
-    &.small {
-      background: #272c43;
-      box-shadow: inset 4px 4px 7px #1b1f2f, inset -4px -4px 7px #333957;
+    &--small {
+      box-shadow: inset $bs-outter-sm $background-darker,
+        inset $bs-inner-sm $background-lighter;
     }
   }
 }
 
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.eot?pp6s63");
-  src: url("fonts/icomoon.eot?pp6s63#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?pp6s63") format("truetype"),
-    url("fonts/icomoon.woff?pp6s63") format("woff"),
-    url("fonts/icomoon.svg?pp6s63#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?pp6s63");
+  src: url("../fonts/icomoon.eot?pp6s63#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?pp6s63") format("truetype"),
+    url("../fonts/icomoon.woff?pp6s63") format("woff"),
+    url("../fonts/icomoon.svg?pp6s63#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
