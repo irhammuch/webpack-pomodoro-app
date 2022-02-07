@@ -58,7 +58,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "assets/js/bundle.min.js",
+    filename: "build/bundle.min.js",
     libraryTarget: "window",
     clean: true,
   },

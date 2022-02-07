@@ -1,0 +1,43 @@
+<h1 class="title">Pomodoro</h1>
+<div class="configs">
+  <div class="configs__item">
+    <h5 class="configs__item__label">Session</h5>
+    <div class="configs__item__content">
+      <button onclick="subSessionVal()" class="button--small button--rounded">
+        -
+      </button>
+      <span id="sessionVal" class="configs__item__value"></span>
+      <button onclick="addSessionVal()" class="button--small button--rounded">
+        +
+      </button>
+    </div>
+  </div>
+  <div class="configs__item">
+    <h5 class="configs__item__label">Break</h5>
+    <div class="configs__item__content">
+      <button onclick="subBreakVal()" class="button--small button--rounded">
+        -
+      </button>
+      <span id="breakVal" class="configs__item__value"></span>
+      <button onclick="addBreakVal()" class="button--small button--rounded">
+        +
+      </button>
+    </div>
+  </div>
+</div>
+<div class="timer">
+  <div id="timer" class="timer__value"></div>
+  <div id="countdownState" class="timer__state"></div>
+</div>
+<div>
+  <button
+    id="playButton"
+    onclick="toggleCountdown()"
+    class="button--large button--circle icon-pause"
+  ></button>
+  <button
+    id="resetButton"
+    onclick="resetCountdown()"
+    class="button--large button--circle icon-stop"
+  ></button>
+</div>
