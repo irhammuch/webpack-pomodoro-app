@@ -19,7 +19,25 @@ module.exports = {
       {
         test: /\.(s(a|c)ss)$/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            // Interprets CSS
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: "postcss-loader",
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass"),
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)?(\?[a-z0-9#=&.]+)?$/,
