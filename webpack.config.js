@@ -4,15 +4,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  entry: ["./src/main.js"],
+  entry: ["./src/main.ts"],
   devtool: "source-map",
   resolve: {
-    extensions: ["*", ".js"],
+    extensions: ["*", ".ts"],
   },
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(js|ts)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
       },

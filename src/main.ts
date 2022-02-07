@@ -1,8 +1,11 @@
 import "./styles.scss";
 
-var sessionLength = 25;
-var breakLength = 5;
-var timer, timerType, countdown, countdownState;
+var sessionLength: number = 25;
+var breakLength: number = 5;
+var timer: number,
+  timerType: string,
+  countdown: NodeJS.Timer,
+  countdownState: string;
 
 document.addEventListener("DOMContentLoaded", () => loadContent());
 
@@ -13,7 +16,7 @@ const loadContent = () => {
   setHtmlContent();
 };
 
-const setTimer = (type) => {
+const setTimer = (type: string) => {
   const minute = type == "session" ? sessionLength : breakLength;
   timer = minute * 60;
 };
@@ -27,11 +30,11 @@ const setHtmlContent = () => {
 };
 
 const setSessionHtml = () => {
-  document.getElementById("sessionVal").innerHTML = sessionLength;
+  document.getElementById("sessionVal").innerHTML = sessionLength.toString();
 };
 
 const setBreakHtml = () => {
-  document.getElementById("breakVal").innerHTML = breakLength;
+  document.getElementById("breakVal").innerHTML = breakLength.toString();
 };
 
 const setPlayButtonHtml = () => {
@@ -56,15 +59,15 @@ const setCoundownStateHtml = () => {
 };
 
 const setTimerHtml = () => {
-  const displayTimer = setTimerDisplay();
+  const displayTimer: string = setTimerDisplay();
   document.getElementById("timer").innerHTML = displayTimer;
 };
 
-const setTimerDisplay = () => {
-  var min = Math.floor(timer / 60);
-  var sec = timer % 60;
-  const displayMin = min < 10 ? "0" + min : min;
-  const displaySec = sec < 10 ? "0" + sec : sec;
+const setTimerDisplay = (): string => {
+  const min: number = Math.floor(timer / 60);
+  const sec: number = timer % 60;
+  const displayMin: String = min < 10 ? "0" + min : min.toString();
+  const displaySec: String = sec < 10 ? "0" + sec : sec.toString();
   return `${displayMin}:${displaySec}`;
 };
 
@@ -91,7 +94,7 @@ const toggleCountdown = () => {
 const resetCountdown = () => {
   if (countdown) {
     clearInterval(countdown);
-    countdown = !countdown;
+    countdown = undefined;
     loadContent();
   }
 };
