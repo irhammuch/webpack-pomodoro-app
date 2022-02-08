@@ -1,7 +1,7 @@
 {
   "name": "pomodoro",
   "version": "1.0.0",
-  "description": "A showcase project to demonstrate a production-ready javascript application from scratch using some of the popular npm packages commonly used by modern frameworks like react/angular/vue.",
+  "description": "A showcase project to demonstrate a production-ready javascript Pomodoro app using Webpack, configure from scratch.",
   "private": true,
   "scripts": {
     "build": "webpack"
